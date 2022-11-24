@@ -98,8 +98,11 @@ class PIDRowGraph(row_graph.RowGraph):
             source = {}
         out = {}
         for key in source:
-            process_name = self.zfs.zpools[pool].read_stats.pid_map[key]
-            out[process_name + " (" + key + ")"] = source[key]
+            try:
+                process_name = self.zfs.zpools[pool].read_stats.pid_map[key]
+                out[process_name + " (" + key + ")"] = source[key]
+            except KeyError:
+                out["Unknown" + " (" + key + ")"] = source[key]
         self.set_values(out)
 
 
