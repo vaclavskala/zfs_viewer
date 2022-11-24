@@ -33,8 +33,11 @@ class PIDWindowBarGraph(graphic.BarGraph):
         self.flags_name_map["Z"] = "ZFETCH"
         self.flags_name_map["S"] = "SEND"
 
+        pool = self.menu.selected().split("/")[0]
+        dataset = self.menu.selected()
+
         try:
-            stats = self.zfs.zpools["pool1"].read_stats.dataset_stats["pool1"].flags_stats
+            stats = self.zfs.zpools[pool].read_stats.dataset_stats[dataset].flags_stats
         except KeyError:
             stats = {}
         #    "SYNC"          : 1 << 0,
@@ -61,11 +64,12 @@ class PIDWindowBarGraph(graphic.BarGraph):
     def _draw(self):
         """Main draw function"""
         # todo zfs_utils
+        pool = self.menu.selected().split("/")[0]
         try:
             if self.last_uid < int(
                 self.zfs.zpools[self.menu.selected().split("/")[0]].read_stats.history.queue[0].uid
             ):
-                self.last_uid = int(self.zfs.zpools["pool1"].read_stats.history.queue[0].uid)
+                self.last_uid = int(self.zfs.zpools[pool].read_stats.history.queue[0].uid)
                 self.prepare_data()
         except IndexError:
             pass
