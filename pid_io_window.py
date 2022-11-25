@@ -4,6 +4,7 @@ import curses
 
 import graphic
 import window
+import app_window
 import scroll_pad
 import utils
 import gui
@@ -130,7 +131,7 @@ class PIDDatasetRowGraph(row_graph.RowGraph):
         self.set_values(out)
 
 
-class PIDWindow(window.AppWindow):
+class PIDWindow(app_window.AppWindow):
     """Main app window for PID tab"""
 
     def __init__(self, main_screen, zfs):

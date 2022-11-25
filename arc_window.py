@@ -3,7 +3,7 @@
 import curses
 
 import graphic
-import window
+import app_window
 import scroll_pad
 import utils
 import time_graph
@@ -37,7 +37,7 @@ class ArcBarGraph(graphic.BarGraph):
         super()._draw()
 
 
-class ArcWindow(window.AppWindow):
+class ArcWindow(app_window.AppWindow):
     """Main arc info window"""
 
     def __init__(self, main_screen, zfs):

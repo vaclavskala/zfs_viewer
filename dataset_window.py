@@ -4,7 +4,7 @@ import curses
 import datetime
 
 import graphic
-import window
+import app_window
 import scroll_pad
 import utils
 import gui
@@ -40,7 +40,7 @@ class DatasetWindowBarGraph(graphic.BarGraph):
         super()._draw()
 
 
-class DatasetWindow(window.AppWindow):
+class DatasetWindow(app_window.AppWindow):
     """Main dataset info window"""
 
     def __init__(self, main_screen, zfs):

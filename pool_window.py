@@ -3,7 +3,7 @@
 import curses
 
 import graphic
-import window
+import app_window
 import scroll_pad
 import utils
 import zfs_lib
@@ -40,7 +40,7 @@ class PoolWindowBarGraph(graphic.BarGraph):
         super()._draw()
 
 
-class PoolWindow(window.AppWindow):
+class PoolWindow(app_window.AppWindow):
     """Main pool IO window"""
 
     def __init__(self, main_screen, zfs):

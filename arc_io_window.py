@@ -4,6 +4,7 @@ import curses
 
 import graphic
 import window
+import app_window
 import time_graph
 import arc_history
 import utils
@@ -58,7 +59,7 @@ class ArcIOSmallWindow(window.Window):
             self.window.mvwin(s_r, s_c)
 
 
-class ArcIOWindow(window.AppWindow):
+class ArcIOWindow(app_window.AppWindow):
     """Main ARC IO window"""
 
     def __init__(self, main_screen, zfs):

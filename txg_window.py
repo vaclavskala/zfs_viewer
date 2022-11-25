@@ -4,6 +4,7 @@ import curses
 
 import graphic
 import window
+import app_window
 import time_graph
 import txg_history
 import utils
@@ -57,7 +58,7 @@ class TxgSmallWindow(window.Window):
             self.window.mvwin(s_r, s_c)
 
 
-class TxgWindow(window.AppWindow):
+class TxgWindow(app_window.AppWindow):
     """Class for main txg window"""
 
     def __init__(self, main_screen, zfs):

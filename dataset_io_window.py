@@ -3,7 +3,7 @@
 import curses
 
 import graphic
-import window
+import app_window
 import scroll_pad
 import utils
 import gui
@@ -12,7 +12,7 @@ import time_graph
 import dataset_history
 
 
-class DatasetIOWindow(window.AppWindow):
+class DatasetIOWindow(app_window.AppWindow):
     """Main dataset IO window"""
 
     def __init__(self, main_screen, zfs):

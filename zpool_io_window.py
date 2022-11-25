@@ -3,7 +3,7 @@
 import curses
 
 import graphic
-import window
+import app_window
 import scroll_pad
 import utils
 import gui
@@ -355,7 +355,7 @@ class ZpoolIOSmallWindow(scroll_pad.ScrollPad):
 
 
 # pylint: disable=too-many-instance-attributes
-class ZpoolIOWindow(window.AppWindow):
+class ZpoolIOWindow(app_window.AppWindow):
     """Class for zpool_io window"""
 
     def __init__(self, main_screen, zfs):
