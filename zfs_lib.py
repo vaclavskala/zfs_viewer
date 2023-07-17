@@ -67,9 +67,12 @@ class Zfs:
                         self.zpools[pool_name].datasets[dataset_name], name, used, creation
                     )
                     if int(userrefs) > 0:
-                        self.zpools[pool_name].datasets[dataset_name].snapshot[
-                            short_name
-                        ].get_holds()
+                        try:
+                            self.zpools[pool_name].datasets[dataset_name].snapshot[
+                                short_name
+                            ].get_holds()
+                        except KeyError:
+                            pass
         except subprocess.CalledProcessError:
             return
 
