@@ -60,7 +60,7 @@ class Zfs:
                     userrefs = data[3]
                     dataset_name = data[0].split("@")[0]
                     short_name = data[0].split("@")[1]
-                    pool_name = line.split("/")[0]
+                    pool_name = line.split("/")[0].split('@')[0]
                     self.zpools[pool_name].datasets[dataset_name].snapshot[
                         short_name
                     ] = snapshot_lib.Snapshot(
